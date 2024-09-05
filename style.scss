@@ -8,7 +8,21 @@ html, * {
 }
 
 .wrapper {
+    background-image: url(./public/images/wrapper__background.jpeg);
     width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+img {
+    max-width: 100%;
+}
+
+.main {
+    position: relative;
+    top: 40%;
+    text-align: center;
 }
 
 .header {
@@ -23,9 +37,11 @@ html, * {
             display: flex;
             width: 100%;
             justify-content: flex-end;
+            padding: 1em 0;
 
             &-item {
                 padding: 0 1em;
+                color: black;
 
                 &.service {
                     margin-right: auto; //не работает, но он должен быть прижат к левому краю
