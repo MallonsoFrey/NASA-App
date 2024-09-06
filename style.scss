@@ -1,3 +1,12 @@
+@font-face {
+    font-family: Methanerse;
+    src: url(./public/fonts/methanerse-font/MethanerseFreeTrial-0WpE4.otf);
+}
+@font-face {
+    font-family: Trench;
+    src: url(./public/fonts/trench-font/TrenchThin-16R0.otf);
+}
+
 html, * {
     box-sizing: border-box;
     margin: 0;
@@ -21,8 +30,15 @@ img {
 
 .main {
     position: relative;
-    top: 40%;
+    top: 35%;
     text-align: center;
+    font-family: 'Methanerse';
+    font-size: large;
+
+    h1 {
+        font-size: 3em;
+        margin-bottom: 0.5em;
+    }
 }
 
 .header {
@@ -38,14 +54,15 @@ img {
             width: 100%;
             justify-content: flex-end;
             padding: 1em 0;
+            font-family: 'Trench';
+            background-color: black;
+            font-size: large;
+            font-weight: 900;
 
             &-item {
                 padding: 0 1em;
-                color: black;
-
-                &.service {
-                    margin-right: auto; //не работает, но он должен быть прижат к левому краю
-                }
+                text-decoration: none;
+                color: white;
             }
         }
     }
