@@ -12,10 +12,6 @@ html, * {
     margin: 0;
 }
 
-.wrapper, .header, .header__nav {
-    border: 1px solid black;
-}
-
 .wrapper {
     background-image: url(./public/images/wrapper__background.jpeg);
     width: 100%;
@@ -30,7 +26,7 @@ img {
 
 .main {
     position: relative;
-    top: 35%;
+    bottom: -30%;
     text-align: center;
     font-family: 'Methanerse';
     font-size: large;
@@ -72,5 +68,16 @@ img {
                 color: white;
             }
         }
+    }
+}
+
+.mars-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    & select {
+        margin-top: 1em;
     }
 }
