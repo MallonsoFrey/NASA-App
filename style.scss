@@ -71,6 +71,7 @@ img {
     }
 }
 
+
 .mars-container {
     display: flex;
     flex-flow: column;
@@ -91,6 +92,44 @@ img {
         background-color: black;
         color: white;
         font-size: 0.7em;
+  }
+}
+
+.apod_content {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0.1em;
+    text-align: center;
+    font-family: 'Trench';
+    font-size: large;
+    color: white;
+    background-color: black;
+    h2 {
+        padding: 0.5em 0 0;
+        font-family: 'Methanerse';
+        font-size: 2em;
+        margin-bottom: 1em;
+    }
+    h3 {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+    }
+    img {
+        width: 65%; 
+        margin: auto;
+        margin-bottom: 0.5em;
+    }
+    a {
+        margin-bottom: 0.7em;
+        font-size: 1em;
+        color: white;
+        text-decoration: none;
+    }
+    p {
+        padding: 0 1em;
+        font-size: 1.5em;
         margin-bottom: 1em;
     }
 }
