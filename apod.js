@@ -25,6 +25,7 @@ export function getData() {
       const errContainer = document.createElement("div");
       errContainer.textContent = `Error: ${err.status} ${err.statusText}`;
       main.appendChild(errContainer);
+
     });
 }
 

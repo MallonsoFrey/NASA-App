@@ -1,7 +1,5 @@
 import { weather } from "./src/vars-weather";
-
 import { getWeather } from "./src/common-weather";
-
 import { main, apodLink, getData } from "./apod";
 
 apodLink.addEventListener("mouseover", function () {
@@ -13,5 +11,5 @@ apodLink.addEventListener("mouseout", function () {
 });
 
 apodLink.addEventListener("click", getData);
-
 weather.addEventListener("click", getWeather);
+
