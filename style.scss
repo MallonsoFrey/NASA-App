@@ -1,10 +1,10 @@
 @font-face {
     font-family: Methanerse;
-    src: url(./public/fonts/methanerse-font/MethanerseFreeTrial-0WpE4.otf);
+    src: url(./src/fonts/methanerse-font/MethanerseFreeTrial-0WpE4.otf);
 }
 @font-face {
     font-family: Trench;
-    src: url(./public/fonts/trench-font/TrenchThin-16R0.otf);
+    src: url(./src/fonts/trench-font/TrenchThin-16R0.otf);
 }
 
 html, * {
@@ -13,7 +13,7 @@ html, * {
 }
 
 .wrapper {
-    background-image: url(./public/images/wrapper__background.jpeg);
+    background-image: url(./src/images/wrapper__background.jpeg);
     width: 100%;
     height: 100vh;
     background-repeat: no-repeat;
@@ -25,9 +25,14 @@ img {
 }
 
 .main {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    bottom: calc(-27vh);
+    bottom: calc(-20vh);
     text-align: center;
+    padding: 0 2em;
     font-family: 'Methanerse';
     font-size: large;
 
@@ -75,6 +80,7 @@ img {
 .mars-container {
     display: flex;
     flex-flow: column;
+    padding: 1em;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 139, 0.221);
@@ -86,13 +92,27 @@ img {
         margin: 1em 0;
     }   
 
+    &__input {
+        margin: 1em 0 0 0;
+    }
+
     &__no-rover {
         display: inline-block;
         width: 30%;
         background-color: black;
         color: white;
         font-size: 0.7em;
-  }
+        margin: 0.5em 0;
+    }
+}
+
+.return {
+    background-color: black;
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+    border: none;
+    margin: 0.5em 0;
 }
 
 .apod_content {

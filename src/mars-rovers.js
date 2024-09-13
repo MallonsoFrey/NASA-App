@@ -1,32 +1,7 @@
-const marsButton = document.querySelector('.mars')
+export const marsButton = document.querySelector('.mars')
 const output = document.querySelector('.main__content')
 
-/*fetch('https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=1023&api_key=ujhHC5aAHogxEryayLSB4H3LRoKlpAkpqq48JZ8g')
-.then((res) => res.json())
-.then(data => console.log(data))
-.catch(err => console.log(err))*/
-
-function mainInfo() {
-    output.innerHTML = `
-    <div class="mars-container">
-        <h3>Here you can find out everything about the rover Curiosity</h3>
-        <p class="mars-container__no-rover">Unfortunately, the servers of Opportunity and Spirit rovers are currently unavaliable.</p>
-        <p>Martian day is called Sol</p>
-        <p>You can choose Sol(up to 4300) and which camera's image you'd like to see!</p>
-        <input type="number" name="sol" id="sol">
-        <select class="mars-container__select" id="cam">
-            <option hidden>Choose the camera</option>
-            <option value="fhaz">Front Camera</option>
-            <option value="rhaz">Rear Camera</option>
-            <option value="mardi">Descent Imager</option>
-            <option value="navcam">Navigation Camera</option>
-        </select>
-        <button class="roverButton">Show me!</button>
-    </div>
-    `
-}
-
-marsButton.addEventListener('click', () => {
+export function marsCam() {
     mainInfo()
 
     const chosenSol = document.querySelector('#sol')
@@ -48,31 +23,52 @@ marsButton.addEventListener('click', () => {
 
         marsRender(chosenSolValue, chosenCamValue)
     })
-})
+}
+
+function mainInfo() {
+    output.innerHTML = `
+    <div class="mars-container">
+        <h3>Here you can find out everything about the rover Curiosity</h3>
+        <p class="mars-container__no-rover">Unfortunately, the servers of Opportunity and Spirit rovers are currently unavaliable.</p>
+        <p>Martian day is called Sol</p>
+        <p>You can choose Sol(up to 4300) and which camera's image you'd like to see!</p>
+        <input class="mars-container__input" type="number" name="sol" id="sol">
+        <select class="mars-container__select" id="cam">
+            <option hidden>Choose the camera</option>
+            <option value="fhaz">Front Camera</option>
+            <option value="rhaz">Rear Camera</option>
+            <option value="mardi">Descent Imager</option>
+            <option value="navcam">Navigation Camera</option>
+        </select>
+        <button class="roverButton return">Show me!</button>
+    </div>
+    `
+}
 
 async function marsRender(num, cam) {
-    output.innerHTML = '<img src="./public/images/loading.gif" alt="rocket loading gif">'
+    output.innerHTML = '<img src="./src/images/loading.gif" alt="rocket loading gif">'
     try {
         const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${num}&camera=${cam}&api_key=ujhHC5aAHogxEryayLSB4H3LRoKlpAkpqq48JZ8g`)
 
         if(!response.ok) {
-            return Promise.reject(response.status)
+            throw new Error(response.status)
         }
 
         const data = await response.json()
-        if(!data || !data.photos || data.photos.length === 0 || data ==- undefined) {
+        if(!data || !data.photos || data.photos.length === 0) {
             output.innerHTML = `
                 <div class="mars-container">
-                    <p>No photos available. Please try another selection.</p>
+                    <p>No photos available for this Sol or camera. Please try another selection.</p>
                     <button class="return">Go back</button>
                 </div>
             `
+            return
         }
 
         output.innerHTML = `
             <div class="mars-container">
                 <h2>Mars Rover Photos</h2>
-                <div style="width: 20%"><img style="max-width: 100%; height: auto;" src="${data.photos[0].img_src}" alt="Mars Rover Photo"></div>
+                <div style="width: 50%"><img style="max-width: 100%; height: auto;" src="${data.photos[0].img_src}" alt="Mars Rover Photo"></div>
                 <p>Rover: ${data.photos[0].rover.name}</p>
                 <p>Date: ${data.photos[0].earth_date}</p>
                 <button class="return">Go back</button>
@@ -83,7 +79,7 @@ async function marsRender(num, cam) {
     } catch (error) {
         output.innerHTML = `
         <div class="mars-container">
-            <p>Error fetching data: ${error.message}</p>
+            <p>Error fetching data: ${error.message}</p><>
             <button class="return">Go back</button>
         </div>
         `
