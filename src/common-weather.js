@@ -1,8 +1,10 @@
 import { mainContent, weather } from "./vars-weather";
+const API_KEY = "DEMO_KEY";
 
 export async function getWeather() {
   await fetch(
-    "https://api.nasa.gov/insight_weather/?api_key=2zR71FbfLVWLCsK2fFTMVDJb7K74EGjO0YeGtPoG&feedtype=json&ver=1.0"
+    `https://api.nasa.gov/insight_weather/?api_key=${API_KEY}&feedtype=json&ver=1.0`
+    //"https://api.nasa.gov/insight_weather/?api_key=2zR71FbfLVWLCsK2fFTMVDJb7K74EGjO0YeGtPoG&feedtype=json&ver=1.0"
   )
     .then((response) => {
       if (response.ok) {
