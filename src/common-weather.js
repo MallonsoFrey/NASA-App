@@ -1,11 +1,7 @@
 import { mainContent, weather } from "./vars-weather";
-const API_KEY = "DEMO_KEY";
 
 export async function getWeather() {
-  await fetch(
-    `https://api.nasa.gov/insight_weather/?api_key=${API_KEY}&feedtype=json&ver=1.0`
-    //"https://api.nasa.gov/insight_weather/?api_key=2zR71FbfLVWLCsK2fFTMVDJb7K74EGjO0YeGtPoG&feedtype=json&ver=1.0"
-  )
+  await fetch(`http://localhost:3001/sol_keys`)
     .then((response) => {
       if (response.ok) {
         return response.json();
@@ -29,19 +25,19 @@ export async function getWeather() {
 }
 
 function renderWeather(jso) {
-  mainContent.remove();
-  //const { sol_keys, validity_checks } = jso;
-
-  console.log(jso.sols_keys);
-
-  /*for (let i = 0; i < sol_keys.length; i++) {
+  //mainContent.remove();
+  mainContent.innerHTML = `<h2>Current Weather on Mars</h2>`;
+  const sol_keys = jso;
+  for (let i = 0; i < sol_keys.length; i++) {
     const sol = document.createElement("div");
     sol.classList.add("sol");
-
-    const solTitle = document.createElement("h2");
+    const solTitle = document.createElement("h3");
     solTitle.textContent = sol_keys[i];
-    sol.appendChild(solTitle);
 
+    sol.appendChild(solTitle);
+    mainContent.append(sol);
+
+    /*
     const solDate = document.createElement("p");
     solDate.textContent = `${LOCAL_DATE_TIME[i]} / ${LOCAL_SOL[i]}`;
     sol.appendChild(solDate);
@@ -74,5 +70,5 @@ function renderWeather(jso) {
     solAtmosphere.textContent = `${ATMOSPHERE[i]}`;
     sol.appendChild(solAtmosphere);
 */
-  //mainContent.append(sol);
+  }
 }
