@@ -30,6 +30,7 @@ function renderWeather(jso) {
   const sol_keys = jso;
   for (let i = 0; i < sol_keys.length; i++) {
     const sol = document.createElement("div");
+
     sol.classList.add("sol");
     const solTitle = document.createElement("h3");
     solTitle.textContent = sol_keys[i];
