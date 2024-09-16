@@ -59,5 +59,5 @@ function renderData(obj) {
     height: 100%;
     `;
     main.append(apodContainer);
-    wrapper.append(header);
+    wrapper.append(header); 
 }
