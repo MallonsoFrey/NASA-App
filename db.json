@@ -1,14 +1,4 @@
 {
-  "users": [
-    { "id": 1, "name": "Vasea", "email": "vasea@example.com" },
-    { "id": 2, "name": "Olea", "email": "olea@example.com" },
-    { "id": 3, "name": "Sasha", "email": "sasha@example.com" },
-    { "id": 4, "name": "Sveta", "email": "sveta@example.com" },
-    { "id": 5, "name": "Maks", "email": "maks@example.com" }
-  ],
-
-  "sol": ["259", "260", "261", "262", "263", "264", "265"],
-
   "sol_keys": [
     {
       "259": {
