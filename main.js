@@ -1,7 +1,7 @@
 import { weather } from "./src/vars-weather";
 import { getWeather } from "./src/common-weather";
-import { apodLink, getData } from "./src/apod";
-import { marsButton, marsCam} from "./src/mars-rovers";
+import { main, apodLink, getData } from "./apod";
+import { epic } from "./src/epic";
 
 apodLink.addEventListener("mouseover", function () {
   this.textContent = "Astronomy Picture of the Day";
