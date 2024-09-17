@@ -13,3 +13,8 @@ apodLink.addEventListener("mouseout", function () {
 apodLink.addEventListener("click", getData);
 weather.addEventListener("click", getWeather);
 
+/*бургер меню*/
+import { click } from "./src/burger";
+import { burger } from "./src/vars-burger";
+
+burger.addEventListener("click", click);
