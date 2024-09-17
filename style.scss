@@ -132,3 +132,13 @@ img {
     margin-bottom: 1em;
   }
 }
+
+.sol {
+  display: flex;
+}
+
+@media screen and (max-width: 620px) {
+  .sol {
+    flex-direction: column;
+  }
+}
