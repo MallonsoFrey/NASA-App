@@ -26,15 +26,18 @@ img {
 
 .main {
     height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
     bottom: calc(-20vh);
     text-align: center;
     padding: 0 2em;
     font-family: 'Methanerse';
     font-size: large;
+
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
 
     h1 {
         font-size: 3em;
@@ -80,6 +83,7 @@ img {
 .mars-container {
     display: flex;
     flex-flow: column;
+    width: 70%;
     padding: 1em;
     justify-content: center;
     align-items: center;
@@ -106,7 +110,7 @@ img {
     }
 }
 
-.return {
+.buttonStyle {
     background-color: black;
     color: white;
     padding: 0.5em 1em;
