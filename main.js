@@ -5,7 +5,7 @@ import { marsButton, mainInfo} from "./src/mars-rovers";
 const spaceGazeButton = document.querySelector('.space-gaze')
 const mainContent = document.querySelector('.main__content')
 import { main, apodLink, getData } from "./apod";
-import { epic } from "./src/epic";
+import { initializeEpicPage } from './src/epic';
 
 apodLink.addEventListener("mouseover", function () {
   this.textContent = "Astronomy Picture of the Day";
@@ -19,6 +19,9 @@ apodLink.addEventListener("click", getData);
 weather.addEventListener("click", getWeather);
 marsButton.addEventListener('click', mainInfo)
 spaceGazeButton.addEventListener('click', spaceGazeRender)
+
+
+initializeEpicPage();
 
 function spaceGazeRender() {
   mainContent.innerHTML =`
