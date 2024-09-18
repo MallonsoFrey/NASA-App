@@ -47,11 +47,22 @@ img {
 }
 
 .header {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 2;
 
   &__nav {
+    @media screen and (max-width: 750px) {
+      width: 200px;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 50;
+      transition: 0.5s;
+      transform: translate(100%);
+    }
     &__list {
       display: flex;
       width: 100%;
@@ -61,12 +72,23 @@ img {
       background-color: black;
       font-size: large;
       font-weight: 900;
+      @media screen and (max-width: 750px) {
+        flex-direction: column;
+        background-color: black;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 7%;
+      }
 
       &-item {
         padding: 0 1em;
 
         &.service {
           margin-right: auto;
+          @media screen and (max-width: 750px) {
+            margin: 0;
+          }
         }
       }
 
@@ -245,6 +267,7 @@ img {
   background: rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
+
 .sol {
   display: flex;
 }
