@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./src/images/space-shuttle-svgrepo-com.svg" type="image/x-icon">
-    <link rel="stylesheet" href="./style.scss" />
-    <title>Nasa App</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <header class="header">
-        <nav class="header__nav">
-          <ul class="header__nav__list">
-            <li class="header__nav__list-item service">
-              <a class="space-gaze" href="#"> SPACE GAZE </a>
-            </li>
-            <li class="header__nav__list-item apod">
-              <a href="#"> APOD </a>
-            </li>
-            <li class="header__nav__list-item epic">
-              <a href="#" data-route="epic"> EPIC </a>
-            </li>
-            <li class="header__nav__list-item rovers">
-              <a class="mars" href="#"> Mars Rover Photos </a>
-            </li>
-            <li class="header__nav__list-item weather">
-              <a href="#"> Weather Services </a>
-            </li>
-            <li class="header__nav__list-item other">
-              <a href="#"> Other </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <main class="main">
-        <div class="main__content" id="main-content">
-          <h1 class="main__content-heading">SPACE GAZE</h1>
-          <p class="main__content-paragraph">
-            some info about how great your website is
-          </p>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./src/images/space-shuttle-svgrepo-com.svg" type="image/x-icon">
+  <link rel="stylesheet" href="./style.scss" />
+  <title>Nasa App</title>
+</head>
+
+<body class="body">
+  <div class="burger__dark"></div>
+  <div class="wrapper">
+    <header class="header">
+      <div class="burger_container">
+        <div class="burger">
+          <span></span>
         </div>
-      </main>
-    </div>
-    <script type="module" src="/main.js"></script>
-    <script type="module" src="/src/epic.js"></script>
-  </body>
+      </div>
+      <nav class="header__nav">
+        <ul class="header__nav__list">
+          <li class="header__nav__list-item service">
+            <a class="header__a space-gaze" href="#"> SPACE GAZE </a>
+          </li>
+          <li class="header__nav__list-item apod">
+            <a class="header__a" href="#"> APOD </a>
+          </li>
+          <li class="header__nav__list-item epic">
+            <a class="header__a" href="#"> EPIC </a>
+          </li>
+          <li class="header__nav__list-item rovers">
+            <a class="header__a mars" href="#"> Mars Rover Photos </a>
+          </li>
+          <li class="header__nav__list-item weather">
+            <a class="header__a" href="#"> Weather Services </a>
+          </li>
+          <li class="header__nav__list-item other">
+            <a class="header__a" href="#"> Other </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <div class="main__content" id="main-content">
+        <h1 class="main__content-heading">SPACE GAZE</h1>
+        <p class="main__content-paragraph">
+          some info about how great your website is
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+  <script type="module" src="/src/epic.js"></script>
+</body>
+
 </html>

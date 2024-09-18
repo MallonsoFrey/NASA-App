@@ -16,19 +16,25 @@ apodLink.addEventListener("mouseout", function () {
 
 apodLink.addEventListener("click", getData);
 weather.addEventListener("click", getWeather);
-marsButton.addEventListener('click', mainInfo)
-spaceGazeButton.addEventListener('click', spaceGazeRender)
+marsButton.addEventListener("click", mainInfo);
+spaceGazeButton.addEventListener("click", spaceGazeRender);
 
 
 initializeEpicPage();
 
 function spaceGazeRender() {
-  mainContent.innerHTML =`
+  mainContent.innerHTML = `
     <div class="main__content">
       <h1 class="main__content-heading">SPACE GAZE</h1>
       <p class="main__content-paragraph">
         some info about how great your website is
       </p>
     </div>
-    `
+    `;
 }
+
+/*бургер меню*/
+import { click } from "./src/burger";
+import { burger } from "./src/vars-burger";
+
+burger.addEventListener("click", click);
