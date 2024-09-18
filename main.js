@@ -4,7 +4,6 @@ import { apodLink, getData } from "./src/apod";
 import { marsButton, mainInfo } from "./src/mars-rovers";
 const spaceGazeButton = document.querySelector(".space-gaze");
 const mainContent = document.querySelector(".main__content");
-import { main, apodLink, getData } from "./apod";
 import { initializeEpicPage } from "./src/epic";
 
 apodLink.addEventListener("mouseover", function () {

@@ -1,5 +1,5 @@
 import { mainContent } from "./vars-weather";
-import { main } from "../apod";
+import { main } from "./apod";
 
 export async function getWeather() {
   await fetch(`http://localhost:3001/sol_keys`)
