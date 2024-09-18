@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./src/images/space-shuttle-svgrepo-com.svg" type="image/x-icon">
   <link rel="stylesheet" href="./style.scss" />
   <title>Nasa App</title>
 </head>
@@ -20,7 +21,7 @@
       <nav class="header__nav">
         <ul class="header__nav__list">
           <li class="header__nav__list-item service">
-            <a class="header__a" href="#"> SPACE GAZE </a>
+            <a class="header__a space-gaze" href="#"> SPACE GAZE </a>
           </li>
           <li class="header__nav__list-item apod">
             <a class="header__a" href="#"> APOD </a>
@@ -41,7 +42,7 @@
       </nav>
     </header>
     <main class="main">
-      <div class="main__content">
+      <div class="main__content" id="main-content">
         <h1 class="main__content-heading">SPACE GAZE</h1>
         <p class="main__content-paragraph">
           some info about how great your website is
@@ -51,7 +52,7 @@
   </div>
 
   <script type="module" src="/main.js"></script>
-  <script src="mars-rovers.js"></script>
+  <script type="module" src="/src/epic.js"></script>
 </body>
 
 </html>
