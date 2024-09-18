@@ -12,10 +12,6 @@ html, * {
     margin: 0;
 }
 
-.wrapper, .header, .header__nav {
-    border: 1px solid black;
-}
-
 .wrapper {
     background-image: url(./public/images/wrapper__background.jpeg);
     width: 100%;
@@ -30,7 +26,7 @@ img {
 
 .main {
     position: relative;
-    top: 35%;
+    bottom: calc(-27vh);
     text-align: center;
     font-family: 'Methanerse';
     font-size: large;
@@ -75,9 +71,34 @@ img {
     }
 }
 
+
+.mars-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 139, 0.221);
+    font-family: 'Trench';
+    font-size: 1.5em;
+    font-weight: 600;
+
+    &__select {
+        margin: 1em 0;
+    }   
+
+    &__no-rover {
+        display: inline-block;
+        width: 30%;
+        background-color: black;
+        color: white;
+        font-size: 0.7em;
+  }
+}
+
 .apod_content {
     display: flex;
     flex-flow: column nowrap;
+    flex: 1 1 auto;
     margin-bottom: 0.1em;
     text-align: center;
     font-family: 'Trench';
@@ -89,13 +110,18 @@ img {
         font-family: 'Methanerse';
         font-size: 2em;
         margin-bottom: 1em;
+        @media (max-width: 700px) {
+            font-size: 1.5em;
+        }
     }
     h3 {
         font-size: 2em;
         margin-bottom: 0.5em;
+        @media (max-width: 700px) {
+            font-size: 1.5em;
+        }
     }
-    img {
-        width: 50%; 
+    div {
         margin: 0.5em auto;
     }
     a {
@@ -107,5 +133,8 @@ img {
     p {
         padding: 1em 1em;
         font-size: 1.5em;
+        @media (max-width: 700px) {
+            font-size: 1.2em;
+        }
     }
 }
