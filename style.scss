@@ -26,11 +26,19 @@ img {
 }
 
 .main {
-  position: relative;
-  bottom: calc(-27vh);
+  height: 50vh;
+  bottom: calc(-20vh);
   text-align: center;
+  padding: 0 2em;
   font-family: "Methanerse";
   font-size: large;
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
 
   h1 {
     font-size: 3em;
@@ -74,6 +82,8 @@ img {
 .mars-container {
   display: flex;
   flex-flow: column;
+  width: 70%;
+  padding: 1em;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 139, 0.221);
@@ -85,13 +95,27 @@ img {
     margin: 1em 0;
   }
 
+  &__input {
+    margin: 1em 0 0 0;
+  }
+
   &__no-rover {
     display: inline-block;
     width: 30%;
     background-color: black;
     color: white;
     font-size: 0.7em;
+    margin: 0.5em 0;
   }
+}
+
+.buttonStyle {
+  background-color: black;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  border: none;
+  margin: 0.5em 0;
 }
 
 .apod_content {
@@ -131,6 +155,95 @@ img {
     font-size: 1.5em;
     margin-bottom: 1em;
   }
+}
+
+//styles for burger menu
+.no_scroll {
+  overflow: hidden;
+}
+.header-nav__active {
+  @media screen and (max-width: 750px) {
+    transform: translate(0);
+  }
+}
+.burger_container {
+  position: relative;
+  z-index: 150;
+  color: white;
+}
+.burger {
+  color: white;
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 22px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  span {
+    height: 2px;
+    width: 100%;
+    background-color: white;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 30px;
+    background-color: white;
+  }
+  &:before {
+    top: 0;
+  }
+  &:after {
+    bottom: 0;
+  }
+  &.active {
+    span {
+      @media screen and (max-width: 750px) {
+        display: none;
+      }
+    }
+  }
+  &.active {
+    &::after {
+      @media screen and (max-width: 750px) {
+        top: 50%;
+        transform: rotate(45deg) translate(0, -0%);
+        transition: 0.5s;
+      }
+    }
+  }
+  &.active {
+    &::before {
+      @media screen and (max-width: 750px) {
+        top: 50%;
+        transform: rotate(135deg) translate(0, -50%);
+        transition: 0.5s;
+      }
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    display: flex;
+    z-index: 51;
+  }
+}
+.dark {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
 .sol {
   display: flex;
