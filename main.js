@@ -4,7 +4,7 @@ import { apodLink, getData } from "./src/apod";
 import { marsButton, mainInfo} from "./src/mars-rovers";
 const spaceGazeButton = document.querySelector('.space-gaze')
 const mainContent = document.querySelector('.main__content')
-import { initializeEpicPage } from './src/epic';
+
 
 apodLink.addEventListener("mouseover", function () {
   this.textContent = "Astronomy Picture of the Day";
@@ -20,7 +20,15 @@ marsButton.addEventListener("click", mainInfo);
 spaceGazeButton.addEventListener("click", spaceGazeRender);
 
 
-initializeEpicPage();
+const epicLink = document.querySelector('a[data-route="epic"]');
+epicLink.addEventListener('click', async () => {
+  try {
+    const { initializeEpicPage } = await import('./src/epic.js');
+    initializeEpicPage();
+  } catch (error) {
+    console.error('Ошибка при загрузке модуля epic:', error);
+  }
+});
 
 function spaceGazeRender() {
   mainContent.innerHTML = `
