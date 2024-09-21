@@ -122,10 +122,24 @@ img {
 
   &__select {
     margin: 1em 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
   }
 
   &__input {
     margin: 1em 0 0 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
   }
 
   &__no-rover {
