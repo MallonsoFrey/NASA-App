@@ -119,13 +119,13 @@ img {
   font-family: "Trench";
   font-size: 1.5em;
   font-weight: 600;
-  @media screen and (max-width: 700) {
+  @media screen and (max-width: 700px) {
     width: 100%;
   }
 
   &__photo {
     width: 50%;
-    @media screen and (max-width: 700) {
+    @media screen and (max-width: 700px) {
       width: 100%;
       padding: 0.5em;
     }
