@@ -2,7 +2,7 @@ export function initializeEpicPage() {
   const apiKey = 'UbtvovgnoY8bvWMl7xv4zXR92dnaVMNPJYAt0OzA';
   const mainContent = document.getElementById('main-content');
 
-  // new содержимое для EPIC галереи
+  // New content for the EPIC gallery
   mainContent.innerHTML = `
     <div class="main-content">
       <h1>NASA EPIC Photo Gallery</h1>
@@ -19,13 +19,16 @@ export function initializeEpicPage() {
   const loadGalleryBtn = document.getElementById('loadGalleryBtn');
   loadGalleryBtn.addEventListener('click', loadGallery);
 
-  // Функция для загрузки галереи
+  // Function to load gallery
   function loadGallery() {
     const dateInput = document.getElementById('date-picker').value;
     if (!dateInput) {
       alert('Please, select a date.');
       return;
     }
+
+    // Change the background color to black
+    document.body.style.backgroundColor = 'black';
 
     const formattedDate = dateInput.split('-').join('/');
     const galleryContainer = document.getElementById('gallery-container');
@@ -67,7 +70,7 @@ export function initializeEpicPage() {
       });
   }
 
-  // Функция для отображения крупного изображения
+  // Function to display the large image
   function showLargeImage(imageUrl, date) {
     const photoContainer = document.getElementById('photo-container');
     photoContainer.innerHTML = '';
@@ -84,7 +87,7 @@ export function initializeEpicPage() {
     }
   }
 
-  // Функция для добавления кнопки закрытия
+  // Function to add the close gallery button
   function addCloseGalleryButton() {
     const closeGalleryBtn = document.createElement('button');
     closeGalleryBtn.id = 'closeGalleryBtn';
@@ -97,13 +100,13 @@ export function initializeEpicPage() {
     closeGalleryBtn.addEventListener('click', closeGallery);
   }
 
-  // Функция для закрытия галереи
+  // Function to close the gallery
   function closeGallery() {
     mainContent.innerHTML = `
       <h1 class="main__content-heading">SPACE GAZE</h1>
-      <p class="main__content-paragraph">
-        Some info about how great your website is.
-      </p>
+      <p class="main__content-paragraph"></p>
     `;
+    // Reset the background color
+    document.body.style.backgroundColor = ''; 
   }
 }
