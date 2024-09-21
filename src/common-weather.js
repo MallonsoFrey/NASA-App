@@ -34,9 +34,9 @@ function renderWeather(data) {
             </p>
             <h2>Previous 7 Days</h2>
             `;
-  mainContent.className = "apod_content";
-  let apod_content = document.querySelector(".apod_content");
-  apod_content.style.removeProperty("background-color");
+  //mainContent.className = "apod_content";
+  //let apod_content = document.querySelector(".apod_content");
+  //apod_content.style.removeProperty("background-color");
   //mainContent.style.background = null;
 
   main.style.cssText += `
@@ -73,5 +73,4 @@ function renderWeather(data) {
     mainContent.append(sol);
     firstKey = +firstKey + 1;
   });
-  apod_content.style.removeProperty("background-color");
 }
