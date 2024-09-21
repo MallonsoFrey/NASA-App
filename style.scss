@@ -26,18 +26,25 @@ img {
 }
 
 .main {
-  height: 50vh;
-  bottom: calc(-20vh);
+  height: calc(100vh - 54px);//вычитаем высоту header
   text-align: center;
   padding: 0 2em;
   font-family: "Methanerse";
   font-size: large;
+  @media (max-width: 700px) {//адаптивность
+    height: calc(100vh - 72px);
+    padding: 0 1em;
+  }
+  @media (max-width: 575px) {
+    height: calc(100vh - 90px);
+  }
 
   &__content {
     display: flex;
+    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    position: relative;
+    height: 100%;
   }
 
   h1 {
@@ -50,7 +57,7 @@ img {
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 2;
+  //z-index: 2; убрала для apod
 
   &__nav {
     @media screen and (max-width: 750px) {
@@ -141,41 +148,71 @@ img {
 }
 
 .apod_content {
+  overflow: auto;
   display: flex;
   flex-flow: column nowrap;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 0.1em;
+  flex: 1 1 auto;
+  max-height: 100%;
+  padding: 0.1em;
   text-align: center;
-  font-family: "Trench";
+  font-family: 'Trench';
   font-size: large;
   color: white;
   background-color: black;
   h2 {
-    padding: 0.5em 0 0;
-    font-family: "Methanerse";
-    font-size: 2em;
-    margin-bottom: 1em;
+      margin: 0.5em 0 0;
+      font-family: 'Methanerse';
+      font-size: 2em;
+      margin-bottom: 1em;
+      @media (max-width: 700px) {
+          font-size: 1.5em;
+      }
   }
   h3 {
-    font-size: 2em;
-    margin-bottom: 0.5em;
+      margin-bottom: 0.5em;
+      font-size: 2em;
+      @media (max-width: 700px) {
+          font-size: 1.5em;
+      }
   }
-  img {
-    width: 65%;
-    margin: auto;
-    margin-bottom: 0.5em;
+  div {
+      width: 60%;
+      margin: 0.5em auto;
+      @media (max-width: 700px) {
+          width: 80%;
+      }
+      & input {
+        margin-bottom: 0.1em;
+        border-radius: 0.2em;
+        background-color: white;
+      }
+      & button {
+        padding: 10px 10px;
+        text-align: center;
+        font-family: 'Trench';
+        font-size: large;
+        font-weight: 600;
+        background-color: white;
+        color: black;
+        border-radius: 0.2em;
+        border: none;
+      }
   }
   a {
-    margin-bottom: 0.7em;
-    font-size: 1em;
-    color: white;
-    text-decoration: none;
+      margin-bottom: 0.7em;
+      font-size: 1em;
+      color: white;
+      text-decoration: none;
   }
   p {
-    padding: 0 1em;
-    font-size: 1.5em;
-    margin-bottom: 1em;
+      margin-bottom: 1em;
+      font-size: 1.5em;
+      @media (max-width: 700px) {
+          font-size: 1.2em;
+      }
+      &:last-of-type{
+          margin: 1em;
+      }
   }
 }
 
