@@ -68,7 +68,7 @@ async function marsRender(num, cam) {
         output.innerHTML = `
             <div class="mars-container">
                 <h2>Mars Rover Photos</h2>
-                <div style="width: 50%"><img style="max-width: 100%; height: auto;" src="${data.photos[0].img_src}" alt="Mars Rover Photo"></div>
+                <div class="mars-container__photo"><img style="max-width: 100%; height: auto;" src="${data.photos[0].img_src}" alt="Mars Rover Photo"></div>
                 <p>Rover: ${data.photos[0].rover.name}</p>
                 <p>Date: ${data.photos[0].earth_date}</p>
                 <button class="returnButton buttonStyle">Go back</button>

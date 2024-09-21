@@ -57,6 +57,7 @@ img {
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 2;
 
   &__nav {
     @media screen and (max-width: 750px) {
@@ -118,6 +119,17 @@ img {
   font-family: "Trench";
   font-size: 1.5em;
   font-weight: 600;
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
+
+  &__photo {
+    width: 50%;
+    @media screen and (max-width: 700px) {
+      width: 100%;
+      padding: 0.5em;
+    }
+  }
 
   &__select {
     margin: 1em 0;
@@ -143,7 +155,8 @@ img {
 
   &__no-rover {
     display: inline-block;
-    width: 30%;
+    width: auto;
+    padding: 0.2em;
     background-color: black;
     color: white;
     font-size: 0.7em;
