@@ -27,17 +27,22 @@ export async function getWeather() {
 
 function renderWeather(data) {
   //mainContent.remove();
-  mainContent.innerHTML = `<h2 class="main-title">Current Weather on Mars</h2>
+  mainContent.innerHTML = `<h2>Current Weather on Mars</h2>
             <p>NASA’s InSight Mars lander takes continuous weather measurements (temperature, wind, pressure) on the surface of Mars at Elysium Planitia, a flat, smooth plain near Mars’ equator.</p>
             <p>I'm using InSight Mars Weather Service API to gather this information. View the API
                 <a href="https://api.nasa.gov/assets/insight/InSight%20Weather%20API%20Documentation.pdf" target="_blank">documentation</a> to see how I gathered the information!
             </p>
-            <h2 class="main-title">Previous 7 Days</h2>
+            <h2>Previous 7 Days</h2>
             `;
   mainContent.className = "apod_content";
+  let apod_content = document.querySelector(".apod_content");
+  apod_content.style.removeProperty("background-color");
+  //mainContent.style.background = null;
+
   main.style.cssText += `
     top: 0;
     flex-grow: 1;
+    height: auto;
     `;
 
   const sol_keys = data;
@@ -68,4 +73,5 @@ function renderWeather(data) {
     mainContent.append(sol);
     firstKey = +firstKey + 1;
   });
+  apod_content.style.removeProperty("background-color");
 }
