@@ -288,10 +288,10 @@ img {
 }
 
 .sidebar {
-  background-color: rgba(255, 255, 255, 0.00); 
+  background-color: rgba(255, 255, 255, 0);
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.0); 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0);
 }
 
 .gallery {
@@ -300,7 +300,7 @@ img {
   padding: 20px;
   border-radius: 8px;
   justify-content: center;
- }
+}
 
 .gallery img {
   max-width: 100px;
@@ -310,48 +310,45 @@ img {
   margin: 5px;
 }
 
-
 .gallery img:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 #photo-container img {
-  max-width: 100%; 
+  max-width: 100%;
   border-radius: 8px;
   display: block;
   margin: 0 auto;
-  
 }
 
 .calendar {
-  background-color: rgba(255, 255, 255, 0.3); 
-  color: black; 
+  background-color: rgba(255, 255, 255, 0.3);
+  color: black;
   padding: 10px 20px;
-  border: 1px solid #ccc; 
+  border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
-  opacity: 0.8; 
-  transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out; 
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 #loadGalleryBtn {
-  background-color: rgba(255, 255, 255, 0.3); 
-  color: black; 
+  background-color: rgba(255, 255, 255, 0.3);
+  color: black;
   padding: 10px 20px;
-  border: 1px solid #ccc; 
+  border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
-  opacity: 0.8; 
-  transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out; 
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 #loadGalleryBtn:hover {
-  opacity: 1; 
-  background-color: rgba(255, 255, 255, 0.5); 
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .photo-container {
-position: relative;
-
+  position: relative;
 }
 
 #photo-container img {
@@ -365,14 +362,22 @@ position: relative;
   position: absolute;
   top: 0px;
   right: 5px;
-  background-color: rgba(255, 255, 255, 0.0);
+  background-color: rgba(255, 255, 255, 0);
   border: none;
   padding: 10px;
   cursor: pointer;
   font-size: 20px;
   font-weight: thin;
   color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
   transition: background-color 0.3s ease;
 }
+.sol {
+  display: flex;
+}
 
+@media screen and (max-width: 620px) {
+  .sol {
+    flex-direction: column;
+  }
+}
