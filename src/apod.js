@@ -50,7 +50,7 @@ function renderData(obj) {
     mainContent.innerHTML = `
         <div class="apod_content">
             <h2>Astronomy Picture of the Day</h2>
-            <p>Today is ${date.getDate()} ${month} ${date.getFullYear()}</p>
+            <p>${date.getDate()} ${month} ${date.getFullYear()}</p>
             <h3>${obj.title}</h3>
             <div><img style="max-width: 100%; height: auto;" src="${obj.url}" alt="Astronomy Picture of the Day"/></div>
             <a class="imagehd" href="${obj.hdurl}" target="_blank">Press on me for high-resolution image</a>
