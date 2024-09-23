@@ -1,6 +1,6 @@
 import { weather } from "./src/vars-weather";
 import { getWeather } from "./src/common-weather";
-import { apodLink, setCreateApod } from "./src/apod";
+import { apodLink, getData } from "./src/apod";
 import { marsButton, mainInfo} from "./src/mars-rovers";
 const spaceGazeButton = document.querySelector('.space-gaze')
 const mainContent = document.querySelector('.main__content')
@@ -12,7 +12,7 @@ apodLink.addEventListener("mouseover", function () {
 apodLink.addEventListener("mouseout", function () {
   this.textContent = "APOD";
 });
-apodLink.addEventListener("click", setCreateApod);
+apodLink.addEventListener("click", getData);
 
 weather.addEventListener("click", getWeather);
 marsButton.addEventListener("click", mainInfo);

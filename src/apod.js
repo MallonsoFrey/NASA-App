@@ -1,21 +1,10 @@
 export const main = document.querySelector('.main');
 export const apodLink = document.getElementById('apod');
-//export const newApod = document.getElementById('newApod');
 
 const mainContent = document.querySelector('.main__content');
 const key = 'TVrvR0LgwIjSOHwBsUFSkXqF1jizNTL1Ob6IG2gB';
 
-let createApod = false;
-//let createNewApod = false;
-
-export function setCreateApod() {
-    if (!createApod) {
-        getData();
-        createApod = true;
-    }
-}
-
-function getData() {
+export function getData() {
     fetch(
     `https://api.nasa.gov/planetary/apod?api_key=${key}`
     )
@@ -50,7 +39,7 @@ function renderData(obj) {
     mainContent.innerHTML = `
         <div class="apod_content">
             <h2>Astronomy Picture of the Day</h2>
-            <p>Today is ${date.getDate()} ${month} ${date.getFullYear()}</p>
+            <p>${date.getDate()} ${month} ${date.getFullYear()}</p>
             <h3>${obj.title}</h3>
             <div><img style="max-width: 100%; height: auto;" src="${obj.url}" alt="Astronomy Picture of the Day"/></div>
             <a class="imagehd" href="${obj.hdurl}" target="_blank">Press on me for high-resolution image</a>
