@@ -10,9 +10,9 @@ ___
 **Для корректной работы всех серивсов необходимо отключить VPN**
   
 ## Технологии
-![JavaScript](https://simpleicons.org/icons/javascript.svg) JavaScript  
-![SCSS](https://simpleicons.org/icons/sass.svg) SCSS  
-![Vite](https://vitejs.dev/logo.svg) Vite  
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![SCSS](https://img.shields.io/badge/SCSS-3.6.0-pink)
+![Vite](https://img.shields.io/badge/Vite-2.6.4-brightgreen)
 ___
 
 ## Запуск приложения
