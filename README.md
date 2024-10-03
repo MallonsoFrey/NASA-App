@@ -7,7 +7,7 @@ ___
 - Фото Земли (The Earth Polychromatic Imaging Camera/EPIC) <br>
 - Фото с марсохода Curiosity (Mars Rover Photos) <br>
 - Погода за фиксированный период времени на Марсе (Weather Services) <br>
-<br>
+
 **Для корректной работы всех сервисов необходимо отключить VPN**
   
 ## Технологии
