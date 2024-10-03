@@ -26,12 +26,13 @@ img {
 }
 
 .main {
+  position: relative;
   height: calc(100vh - 54px);
   text-align: center;
   padding: 0 2em;
   font-family: "Methanerse";
   font-size: 1.3em;
-  @media (max-width: 700px) {//адаптивность
+  @media (max-width: 768px) {
     height: calc(100vh - 72px);
     padding: 0 1em;
   }
@@ -41,7 +42,7 @@ img {
 
   &__content {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -50,52 +51,36 @@ img {
   h1 {
     font-size: 3em;
     margin-bottom: 0.5em;
+    @media (max-width: 768px) {
+      color: white;
+    }
   }
 }
 
+//header and burger menu
 .header {
   position: fixed;
+  z-index: 10;
   bottom: 0;
   width: 100%;
-  z-index: 2;
-
+  
   &__nav {
-    @media screen and (max-width: 750px) {
-      width: 200px;
-      height: 100%;
-      position: fixed;
-      top: 0;
-      right: 0;
-      z-index: 50;
-      transition: 0.5s;
-      transform: translate(100%);
-    }
     &__list {
+      list-style: none;
       display: flex;
       width: 100%;
       justify-content: flex-end;
       padding: 1em 0;
       font-family: "Trench";
       background-color: black;
-      font-size: large;
+      font-size: 1.5em;
       font-weight: 900;
-      @media screen and (max-width: 750px) {
-        flex-direction: column;
-        background-color: black;
-        height: 100%;
-        align-items: center;
-        justify-content: center;
-        gap: 7%;
-      }
 
       &-item {
         padding: 0 1em;
 
         &.service {
-          margin-right: auto;
-          @media screen and (max-width: 750px) {
-            margin: 0;
-          }
+          margin: 0 auto;
         }
       }
 
@@ -104,10 +89,76 @@ img {
         text-decoration: none;
         color: white;
       }
+
+      @media screen and (max-width: 768px) {
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 80%;
+        height: 100%;
+        right: -100%;
+        bottom: 0;
+        background-color: black;
+        gap: 0;
+        transition: 0.3s;
+
+        &-item {
+          margin: 1em 0;
+        }
+
+      &.active {
+        right: 0;
+      }
+      }
     }
   }
 }
+.hamburger {
+  color: white;
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 22px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  
+  @media screen and (max-width:768px) {
+    display:block;
+    z-index: 99999;
 
+    &.active {
+      .hamburger-bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger-bar:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      .hamburger-bar:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+    }
+  }
+
+  &-bar {
+    background-color: white;
+    border-radius: 3px;
+    display: block;
+    width: 1.2em;
+    height: 0.2em;
+    margin: 0.2em auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+//mars rover
 .mars-container {
   display: flex;
   flex-flow: column;
@@ -120,14 +171,14 @@ img {
   font-weight: 600;
   color: white;
   padding: 2em;
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 768px) {
     margin-top: 2em;
     width: 100%;
   }
 
   &__photo {
     width: 50%;
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 768px) {
       width: 60%;
       padding: 0.5em;
       margin: 0;
@@ -183,39 +234,50 @@ img {
   margin: 0.5em 0;
 }
 
+.mars__error-message, .epic__error-message, .apod__error-message {
+  background-color: black;
+  color: white;
+  padding: 0.5em 1em;
+  margin: 0.5em 0;
+  font-family: "Trench";
+}
+
+//apod
 .apod_content {
-  overflow-y: auto;
   display: flex;
   flex-flow: column nowrap;
-  flex: 1 1 auto;
+  overflow: auto;
   max-height: 100%;
-  padding: 0.1em;
   text-align: center;
   font-family: 'Trench';
   font-size: large;
   color: white;
-  background-color: black;
-  border-radius: 0.5em;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   h2 {
       margin: 0.5em 0 0;
       font-family: 'Methanerse';
       font-size: 2em;
       margin-bottom: 1em;
-      @media (max-width: 700px) {
+      @media (max-width: 768px) {
           font-size: 1.5em;
       }
   }
   h3 {
       margin-bottom: 0.5em;
       font-size: 2em;
-      @media (max-width: 700px) {
+      color: white;
+      @media (max-width: 768px) {
           font-size: 1.5em;
       }
   }
   div {
       width: 55%;
       margin: 0.5em auto;
-      @media (max-width: 700px) {
+      @media (max-width: 768px) {
           width: 80%;
       }
       & input {
@@ -241,117 +303,39 @@ img {
       color: white;
       text-decoration: none;
   }
+  &_info {
+    margin: 1em 3em;
+    background-color: black;
+    padding: 1em;
+  }
   p {
       margin-bottom: 1em;
       font-size: 1.5em;
-      @media (max-width: 700px) {
+      @media (max-width: 768px) {
           font-size: 1.2em;
       }
-      &:last-of-type{
-          margin: 1em;
-      }
   }
 }
 
-//styles for burger menu
-.no_scroll {
-  overflow: hidden;
-}
-.header-nav__active {
-  @media screen and (max-width: 750px) {
-    transform: translate(0);
-  }
-}
-.burger_container {
-  position: relative;
-  z-index: 150;
+//epic
+.epic__container {
   color: white;
-}
-.burger {
-  color: white;
-  display: none;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  z-index: 100;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 22px;
-  margin-bottom: 15px;
-  margin-left: 15px;
-  span {
-    height: 2px;
-    width: 100%;
-    background-color: white;
-  }
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 30px;
-    background-color: white;
-  }
-  &:before {
-    top: 0;
-  }
-  &:after {
-    bottom: 0;
-  }
-  &.active {
-    span {
-      @media screen and (max-width: 750px) {
-        display: none;
-      }
-    }
-  }
-  &.active {
-    &::after {
-      @media screen and (max-width: 750px) {
-        top: 50%;
-        transform: rotate(45deg) translate(0, -0%);
-        transition: 0.5s;
-      }
-    }
-  }
-  &.active {
-    &::before {
-      @media screen and (max-width: 750px) {
-        top: 50%;
-        transform: rotate(135deg) translate(0, -50%);
-        transition: 0.5s;
-      }
-    }
-  }
-
-  @media screen and (max-width: 750px) {
-    display: flex;
-    z-index: 51;
-  }
-}
-.dark {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1;
-}
-
-//epic_styles
-
-.main-content {
+  font-family: "Trench";
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 100vh;
-  padding: 20px;
+  flex-direction: column;
+  max-width: 70%;
+  height: auto;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#epic__container-heading {
+  font-family: 'Methanerse';
+  font-size: 2.5em;
 }
 
 .black-background {
@@ -388,11 +372,15 @@ img {
   transform: scale(1.1);
 }
 
-#photo-container img {
+#photo-container {
+  max-width: 80%;
+  
+  img {
   max-width: 100%;
   border-radius: 8px;
   display: block;
   margin: 0 auto;
+}
 }
 
 .calendar {
@@ -443,17 +431,50 @@ img {
   padding: 10px;
   cursor: pointer;
   font-size: 20px;
-  font-weight: thin;
   color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
   transition: background-color 0.3s ease;
 }
+
+//weather 
 .sol {
   display: flex;
+  color: white;
+  background-color: black;
+  font-family: "Trench";
+  font-size: 1em;
+  padding: 0.5em;
+  gap: 1em .2em;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 768px) {
   .sol {
     flex-direction: column;
+  }
+}
+
+.weather__container {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  max-width: 80%;
+  overflow: auto;
+  color: white;
+  font-family: "Trench";
+  padding: 1em;
+  font-size: 1.5em;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__paragraph-api {
+    margin: 1em 0;
+
+    a {
+      color: black;
+      font-weight: 700;
+      background-color: rgba(255, 255, 255, 0.573);
+    }
   }
 }

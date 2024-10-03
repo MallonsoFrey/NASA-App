@@ -7,44 +7,32 @@ export async function getWeather() {
       if (response.ok) {
         return response.json();
       } else {
-        return Promise.reject({
-          status: response.status,
-          statusText: response.statusText,
-        });
+        throw new Error();
       }
     })
     .then((data) => {
-      console.log(data);
       renderWeather(data);
     })
     .catch((err) => {
       const errContainer = document.createElement("div");
       errContainer.textContent = `Error: ${err.status} ${err.statusText}`;
       mainContent.appendChild(errContainer);
-      console.log("Ошибка. Запрос не выполнен " + err.message);
     });
 }
 
 function renderWeather(data) {
-  //mainContent.remove();
-  mainContent.innerHTML = `<h2>Current Weather on Mars</h2>
-            <p>NASA’s InSight Mars lander takes continuous weather measurements (temperature, wind, pressure) on the surface of Mars at Elysium Planitia, a flat, smooth plain near Mars’ equator.</p>
-            <p>I'm using InSight Mars Weather Service API to gather this information. View the API
-                <a href="https://api.nasa.gov/assets/insight/InSight%20Weather%20API%20Documentation.pdf" target="_blank">documentation</a> to see how I gathered the information!
-            </p>
-            <h2>Previous 7 Days</h2>
-            `;
-  //mainContent.className = "apod_content";
-  //let apod_content = document.querySelector(".apod_content");
-  //apod_content.style.removeProperty("background-color");
-  //mainContent.style.background = null;
-
-  main.style.cssText += `
-    top: 0;
-    flex-grow: 1;
-    height: auto;
+  mainContent.innerHTML = 
+    `<div class='weather__container'>
+      <h2>Current Weather on Mars</h2>
+      <p>NASA’s InSight Mars lander takes continuous weather measurements (temperature, wind, pressure) on the surface of Mars at Elysium Planitia, a flat, smooth plain near Mars’ equator.</p>
+      <p class='weather__container__paragraph-api'>InSight Mars Weather Service API is used to gather this information. View the API
+          <a href="https://api.nasa.gov/assets/insight/InSight%20Weather%20API%20Documentation.pdf" target="_blank">documentation</a> to see how I gathered the information!
+      </p>
+      <h2>Previous 7 Days</h2>
+    </div>
     `;
 
+  const weatherContainer = document.querySelector('.weather__container')
   const sol_keys = data;
   const countObj = sol_keys[0];
   const keys = Object.keys(countObj);
@@ -59,18 +47,19 @@ function renderWeather(data) {
     sol.appendChild(solTitle);
 
     const solDate = document.createElement("p");
-    solDate.textContent = `Sunrise: ${key[firstKey].First_UTC}; Sunset: ${key[firstKey].Last_UTC}`;
+    solDate.textContent = `Sunrise: ${key[firstKey].First_UTC}; 
+    Sunset: ${key[firstKey].Last_UTC}`;
     sol.appendChild(solDate);
 
     const solTemp = document.createElement("p");
-    solTemp.textContent = `Temperature Low: ${key[firstKey].AT.mn} / High: ${key[firstKey].AT.mx}`;
+    solTemp.textContent = `Temperature: Low: ${key[firstKey].AT.mn} / High: ${key[firstKey].AT.mx}`;
     sol.appendChild(solTemp);
 
     const solSeason = document.createElement("p");
     solSeason.textContent = `Season: ${key[firstKey].Season}`;
     sol.appendChild(solSeason);
 
-    mainContent.append(sol);
+    weatherContainer.append(sol);
     firstKey = +firstKey + 1;
   });
 }

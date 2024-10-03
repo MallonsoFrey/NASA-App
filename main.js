@@ -1,46 +1,43 @@
 import { weather } from "./src/vars-weather";
 import { getWeather } from "./src/common-weather";
-import { apodLink, getData } from "./src/apod";
-import { marsButton, mainInfo} from "./src/mars-rovers";
-const spaceGazeButton = document.querySelector('.space-gaze')
-const mainContent = document.querySelector('.main__content')
+import { apodLink, getData, handleApodLinkHover } from "./src/apod";
+import { marsButton, mainInfo } from "./src/mars-rovers";
+import { initializeEpicPage } from "./src/epic.js";
+const spaceGazeButton = document.querySelector(".space-gaze");
+const mainContent = document.querySelector(".main__content");
+const epicLink = document.querySelector(".epic");
 
+handleApodLinkHover(apodLink);
 
-apodLink.addEventListener("mouseover", function () {
-  this.textContent = "Astronomy Picture of the Day";
-});
-apodLink.addEventListener("mouseout", function () {
-  this.textContent = "APOD";
-});
 apodLink.addEventListener("click", getData);
-
 weather.addEventListener("click", getWeather);
 marsButton.addEventListener("click", mainInfo);
 spaceGazeButton.addEventListener("click", spaceGazeRender);
+epicLink.addEventListener("click", initializeEpicPage);
 
-const epicLink = document.querySelector('a[data-route="epic"]');
-epicLink.addEventListener("click", async () => {
-  try {
-    const { initializeEpicPage } = await import("./src/epic.js");
-    initializeEpicPage();
-  } catch (error) {
-    console.error("Ошибка при загрузке модуля epic:", error);
-  }
-});
-
-function spaceGazeRender() {
+export function spaceGazeRender() {
   mainContent.innerHTML = `
     <div class="main__content">
       <h1 class="main__content-heading">SPACE GAZE</h1>
       <p class="main__content-paragraph">
-        some info about how great your website is
+        let's dive into the unknown
       </p>
     </div>
     `;
 }
 
-/*бургер меню*/
-import { click } from "./src/burger";
-import { burger } from "./src/vars-burger";
+//burger-menu features
+const hamburger = document.querySelector(".hamburger");
+const menu = document.querySelector(".header__nav__list");
 
-burger.addEventListener("click", click);
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  menu.classList.toggle("active");
+});
+
+document.querySelectorAll(".link").forEach((elem) =>
+  elem.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    menu.classList.remove("active");
+  })
+);
