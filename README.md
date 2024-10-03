@@ -6,8 +6,9 @@ ___
 - Фото дня (Astronomy Picture of The Day/APOD) <br>
 - Фото Земли (The Earth Polychromatic Imaging Camera/EPIC) <br>
 - Фото с марсохода Curiosity (Mars Rover Photos) <br>
-- Погода за фиксированный период времени на Марсе (Weather Services)
-**Для корректной работы всех серивсов необходимо отключить VPN**
+- Погода за фиксированный период времени на Марсе (Weather Services) <br>
+<br>
+**!Для корректной работы всех сервисов необходимо отключить VPN!**
   
 ## Технологии
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
