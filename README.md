@@ -8,7 +8,7 @@ ___
 - Фото с марсохода Curiosity (Mars Rover Photos) <br>
 - Погода за фиксированный период времени на Марсе (Weather Services) <br>
 <br>
-**!Для корректной работы всех сервисов необходимо отключить VPN!**
+**Для корректной работы всех сервисов необходимо отключить VPN**
   
 ## Технологии
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
